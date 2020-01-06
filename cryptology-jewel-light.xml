@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<board type="Arduino Nano" name="Jewel Light">
+    <info>
+        A simple three-switch puzzle with LED indication and relay output
+    </info>
+    
+    <devices>
+        <device name="RelayOutput" type="Digital Output">
+            <setting id="pin" name="Output" value="5"/>
+        </device>
+        <device name="Inputs" type="Debounced Input" count="3">
+            <setting id="pin" name="Input" values="A0|A1|A2"/>
+            <setting id="debounce_time" all_values="50"/>
+            <setting id="pullup" all_values="true"/>
+        </device>
+        <device name="LEDOutputs" type="Digital Output" count="3">
+            <setting id="pin" name="Output" values="2|3|4"/>
+        </device>
+    </devices>
+
+    <custom_code>
+        <file>application.cpp</file>
+    </custom_code>
+    
+    <raat protocol="simple"></raat>
+</board>
