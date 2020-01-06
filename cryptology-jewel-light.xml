@@ -13,15 +13,33 @@
             <setting id="pin" name="Input" values="A0|A1|A2"/>
             <setting id="debounce_time" all_values="50"/>
             <setting id="pullup" all_values="true"/>
+            <setting id="invert" all_values="true"/>
         </device>
         <device name="LEDOutputs" type="Digital Output" count="3">
             <setting id="pin" name="Output" values="2|3|4"/>
         </device>
     </devices>
 
+    <parameters>
+        <parameter name="TriggerHold" type="Integer">
+            <setting id="clip" value="false"/>
+            <setting id="min" value="10"/>
+            <setting id="max" value="20000"/>
+            <setting id="use_eeprom" value="true"/>
+        </parameter>
+    </parameters>
+
+    <modules>
+        <module>Oneshot Timer</module>
+    </modules>
+
     <custom_code>
         <file>application.cpp</file>
     </custom_code>
     
+    <logging>
+        <log_module>APPLICATION</log_module>
+    </logging>
+
     <raat protocol="simple"></raat>
 </board>
